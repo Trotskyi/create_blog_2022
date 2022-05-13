@@ -14,3 +14,30 @@ const scrollHeader = () => {
 };
 
 window.addEventListener('scroll', scrollHeader)
+
+const menuToggleIcon = selectElement('#menu-toggle-icon')
+
+const toggleMenu = () => {
+    const mobileMenu = selectElement('#menu')
+    mobileMenu.classList.toggle('activated')
+    menuToggleIcon.classList.toggle('activated')
+}
+
+menuToggleIcon.addEventListener('click', toggleMenu);
+
+const bodyElement = document.body
+const themeToggleBtn = selectElement('#theme-toggle-btn');
+const currentTheme = localStorage.getItem('currentTheme')
+ if(currentTheme) {
+     bodyElement.classList.add('light-theme')
+ }
+
+
+themeToggleBtn.addEventListener('click', () => {
+    bodyElement.classList.toggle('light-theme');
+    if(bodyElement.classList.contains('light-theme')){
+        localStorage.setItem('currentTheme', 'themeActive')
+    } else {
+        localStorage.removeItem('currentTheme')
+    }
+})
