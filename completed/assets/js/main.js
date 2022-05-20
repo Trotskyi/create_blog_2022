@@ -53,3 +53,25 @@ themeToggleBtn.addEventListener('click', () => {
         localStorage.removeItem('currentTheme')
     }
 })
+
+// Quick Read Swiper
+
+const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigator: {
+        nextEl: '.swiper-button-newt',
+        prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+        el: '.swiper-pagination'
+    },
+    breakpoints: {
+        700: {
+            slidesPerView: 2
+        },
+        1200: {
+            slidesPerView: 3
+        }
+    }
+})
